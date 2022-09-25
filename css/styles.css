@@ -6,198 +6,151 @@ html {
   font-family: "Inter", sans-serif;
 }
 
-.background_content {
-  display: block;
+.menu {
+  display: flex;
+  flex-direction: row;
   margin: 0;
-  padding: 1.25rem;
-  font-size: 2rem;
+  padding: 0;
+  list-style: none;
+  background-color: rgb(48, 44, 44);
+  border-bottom: 3px solid rgb(101, 101, 192);
 }
 
-/* модалка */
-.l-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
+.menu__item {
+  position: relative;
+}
+
+.menu__link {
+  display: inline-block;
+  padding: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.menu__link:hover {
+  color: black;
+  background-color: rgba(101, 101, 192, 0.575);
+  border-left: 3px solid rgb(101, 101, 192);
+  transition: 0.3s;
+}
+
+.menu__link:hover .img {
+  display: inline-block;
+}
+
+.menu__submenu-wrapper{
+  position: absolute;
   left: 0;
-  right: 0;
+  bottom: 0;
+  transform: translateY(calc(100%));
+  display: none;
+  padding-top: 3px;
 }
 
-.l-modal::before {
+.menu__submenu {
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  max-height: 100px;
+  list-style: none;
+  background-color: rgb(48, 44, 44);
+  border-bottom: 3px solid rgb(101, 101, 192);
+  border-left: 3px solid rgb(101, 101, 192);
+}
+
+.menu__submenu > *+* {
+  border-top: 1px solid rgb(101, 101, 192);
+}
+
+.menu__submenu-item {
+  position: relative;
+}
+
+.menu__submenu-link {
   display: block;
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.7;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2rem 2rem 3.75rem;
-  width: 27rem;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 8px;
-}
-
-.title {
-  margin-bottom: 1rem;
-}
-
-.title h2 {
-  margin: 0;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 2rem;
-  color: #3E3E3E;
-}
-
-.title h2:hover {
-  color: #3E56AA;
-}
-
-.btn--close {
-  position: absolute;
-  right: 2rem;
-  top: 2.5rem;
-  background-color: white;
-  border: 0;
-}
-
-.btn--close img {
-  width: 0.81rem;
-  height: 0.81rem;
-}
-
-/* Основное уведомление */
-.notification {
-  margin-bottom: 0.75rem;
-  padding: 0.62rem;
-  background-color: #F0F1F3;
-  border-radius: 4px;
-}
-
-.notification::before {
-  display: inline-block;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
-.notification_text {
-  display: inline-block;
-  margin: 0;
+  padding: 15px;
   font-style: normal;
   font-weight: 400;
-  font-size: 0.88rem;
-  line-height: 1.25rem;
-  color: #3E3E3E;
-}
-
-/* Уточняющие классы для уведомления */
-.notification_i {
-  background-color: rgba(40, 73, 157, 0.09);
-}
-
-.notification_i::before {
-  content: url(../icons/icon2.png);
-}
-
-.notification_check {
-  background-color: #E9F8EB;
-}
-
-.notification_check::before {
-  content: url(../icons/icon1.png);
-}
-
-.notification_warning {
-  background-color: #FFF8E0;
-}
-
-.notification_warning::before {
-  content: url(../icons/icon3.png);
-}
-
-.notification_ban {
-  background-color: #FDEAE4;
-}
-
-.notification_ban::before {
-  content: url(../icons/icon4.png);
-}
-
-/* контент модалки */
-.content {
-  margin-bottom: 2rem;
-  padding: 0.19rem;
-}
-
-.content p {
-  margin: 0;
-  padding: 0;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.3rem;
-  color: #3E3E3E;
-}
-
-.content p:hover {
-  color: #3E56AA;
-}
-
-/* кнопки */
-.buttons{
-  padding: 0;
-}
-
-.btn{
-  padding: 0.63rem 1.25rem;
-  background-color: white;
-  border: 0;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.88rem;
-  line-height: 1.25rem;
-  color: black; 
-  text-align: center;
-}
-
-.btn--primary{
-  background-color: #3E56AA;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
   color: white;
 }
 
-.buttons .btn--primary {
-  margin-right: 0.75rem;
+.menu__submenu-link:hover {
+  color: black;
+  background-color: rgba(101, 101, 192, 0.575);
+  transition: 0.3s;
 }
 
-.btn--secondary {
-  background-color: rgba(0, 16, 61, 0.06);
-  color: #2C2D2E;
-}
-
-.btn--ptimaty {
-  color: #3E56AA;
-}
-
-.buttons .btn--secondary {
-  margin-right: 6.5rem;
-}
-
-.btn--link {
-  text-decoration: none;
-  color: #3E56AA;
-}
-
-/* уточняющий класс для кнопки one с позицией внизу */
-.buttons .bottom {
+.menu__secondary-submenu-wrapper {
   position: absolute;
-  bottom: -30px;
+  right: 0;
+  top: 0;
+  transform: translateX(calc(100%));
+  display: none;
+  border-left: 3px solid rgb(101, 101, 192);
+}
+
+.menu__secondary-submenu {
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  max-height: 100px;
+  list-style: none;
+  background-color: rgb(48, 44, 44);
+  border-bottom: 3px solid rgb(101, 101, 192);
+  overflow-y: scroll;
+}
+
+.menu__secondary-submenu > * + * {
+  border-top: 1px solid rgb(101, 101, 192);
+}
+
+.menu__secondary-submenu-link {
+  display: block;
+  padding: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  color: white;
+}
+
+.menu__secondary-submenu-link:hover {
+  color: black;
+  background-color: rgba(101, 101, 192, 0.575);
+  transition: 0.3s;
+}
+
+.img {
+  display: none;
+  width: 25px;
+  height: 25px;
+  fill: white;
+  vertical-align: text-bottom;
+}
+
+.menu__item:hover .menu__submenu, 
+.menu__item:hover .menu__submenu-wrapper,
+.menu__submenu-item:hover .menu__secondary-submenu-wrapper { 
+  display: flex;
+}
+
+.text {
+  padding: 15px;
+  background-color: rgb(114, 112, 112);
+}
+
+.text p {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: black
 }
